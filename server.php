@@ -105,8 +105,8 @@ else if ($_SERVER["REQUEST_METHOD"] == "DELETE") {
 		rmdir($full_path);
 	} else {
 		unlink($full_path);
-		# rmdir can only remove empty dir
-		rmdir(dirname($full_path));
+		# handle rmdir properly
+		# rmdir(dirname($full_path));
 	}
 	
 }
