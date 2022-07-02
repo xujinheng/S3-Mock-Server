@@ -1,7 +1,7 @@
 name: git_pull_ocf
 on:
   push:
-    branches: [ master ]
+    branches: [ main ]
   workflow_dispatch:
 
 jobs:
