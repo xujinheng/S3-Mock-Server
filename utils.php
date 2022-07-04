@@ -47,7 +47,8 @@ function isEmptyDir($dir) {
 }
 
 function return_file($dir) {
-    header('Content-Length: ' . filesize($dir));
+    $ContentLength = filesize($dir) !== 0 ? filesize($dir) : 1;
+    header('Content-Length: ' . $ContentLength);
 	ob_clean();
     flush();
     readfile($dir);

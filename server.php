@@ -80,7 +80,7 @@ else if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_REQUEST["encoding-type"]
 }
 
 # create buckets
-else if ($_SERVER["REQUEST_METHOD"] == "PUT" && $_SERVER["CONTENT_LENGTH"] == "0") {
+else if ($_SERVER["REQUEST_METHOD"] == "PUT" && dirname($full_path) == $BUCKET_FOLDER && $_SERVER["CONTENT_LENGTH"] == "0") {
 	logging("[create buckets]");
 	mkdir($full_path, 0755, True);
 }
