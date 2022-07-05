@@ -6,14 +6,26 @@
 ### Introduction
 `S3-Mock-Server` is a PHP based server that implements Amazon S3 API. 
 
-### Usage
+### Deployment
 Download the file in php server:
 ```bash
 curl -L https://github.com/xujinheng/S3-Mock-Server/releases/download/0.0.1/server-single-file.php -o server.php
 ```
 
-### [Demo.ipynb](./demo.ipynb) 
-Supported methods being tested by [boto3](https://github.com/boto/boto3):
+### Usage
+```python
+import boto3
+s3 = boto3.resource("s3", endpoint_url=<the place you put server.php>, 
+                    aws_access_key_id=<any string>, aws_secret_access_key=<any string>)
+s3.Bucket("bucket_name").upload_file("./local_file_to_be_upload.txt", "object_key")
+s3.Bucket("bucket_name").download_file("object_key", "./local_path_to_be_download.txt")
+```
+Check [demo.ipynb](./demo.ipynb) for details.
+
+Supported client: 
+- [boto3](https://github.com/boto/boto3)
+
+Supported methods:
 - Buckets
   - Create
   - List
