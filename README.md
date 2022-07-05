@@ -17,8 +17,8 @@ curl -L https://github.com/xujinheng/S3-Mock-Server/releases/download/0.0.1/serv
 import boto3
 s3 = boto3.resource("s3", endpoint_url=<the place you put server.php>, 
                     aws_access_key_id=<any string>, aws_secret_access_key=<any string>)
-s3.Bucket("bucket_name").upload_file("./local_file_to_be_upload.txt", "object_key")
-s3.Bucket("bucket_name").download_file("object_key", "./local_path_to_be_download.txt")
+s3.Bucket(<bucket_name>).upload_file(<local_file>, <object_key>)
+s3.Bucket(<bucket_name>).download_file(<object_key>, <local_path>)
 ```
 Check [demo.ipynb](./demo.ipynb) for details.
 
